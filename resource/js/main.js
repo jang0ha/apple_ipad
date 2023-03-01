@@ -77,3 +77,25 @@ function hideSearch() {
 
   searchInputEl.value = ""; // 인풋값 초기화
 }
+
+// /**
+//  * 스프라이트 이미지
+//  */
+// let x = 0;
+// let y = 0;
+// let frames = '';
+// // ${x}단위 =보간
+// for (let i = 0; i < 60; i += 1) {
+//   // 시작/ 종료 /변화
+//   frames += `${(100 / 60 * i).toFixed(2)}% { background-position : ${x}px ${y}px;}`
+//   if (x <= -500) {
+//     x = 0
+//     y -= 100
+//     continue // for반복문 내부에서  if 조건에서 걸린다면 컨티뉴가 걸릴것이고,  컨티뉴가 걸린다면 밑에있는 실행문을 실행하지 않음.
+//   }
+//   x -= 100
+// }
+// const icons = [...document.querySelectorAll(".icon")]; 
+// icons.animate(frames);
+// console.log(icons)
+// // icons.animate(frames);

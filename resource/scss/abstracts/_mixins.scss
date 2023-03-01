@@ -1,0 +1,73 @@
+
+
+@mixin rounded($border) {
+	-webkit-border-radius: $border;
+	-moz-border-radius: $border;
+	border-radius: $border;
+}
+// 쉐도우
+@mixin shadow {
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+// 그라디언트
+@mixin gradient($top, $bottom) {
+	background-color: $bottom;
+	background: -webkit-gradient(linear, left top, left bottom, from($top), to($bottom));
+	background: -moz-linear-gradient(top, $top,  $bottom);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$top}', endColorstr='#{$bottom}');
+}
+
+
+// 버튼 
+@mixin button {
+	display: flex;
+  justify-content: center;
+  align-items: center;
+	padding: .5em 2em .55em;
+	outline: none;
+	cursor: pointer;
+	text-decoration: none;
+  font-size: 0.75rem;
+  &:not(:only-child){
+    gap: 1rem;
+  }
+	@include rounded(2em);
+	//this determines Mozilla to show the padding
+	// @include shadow;
+  @include button-bg($white);
+	&:hover {
+		text-decoration: none;
+	}
+	&:active {
+		position: relative;
+		top: 1px;
+	}
+}
+
+@mixin button-bg($color) {
+	border: 1px  solid $color;
+  background-color: $color;
+	// @include gradient(lighten($color, 13%), $color);//그라디언트
+  color: mix(#fff, $color, 90%);
+	&:hover {
+		// @include gradient(lighten($color, 10%), darken($color, 5%))//그라디언트
+    background:lighten($color, 10%);
+    border: 1px solid lighten($color, 13%);
+	}
+	&:active {
+		// @include gradient($color, lighten($color, 10%));//그라디언트
+		color: mix(#fff, $color, 95%);
+    background:darken($color, 10%);
+    border: 1px solid darken($color, 10%);
+	}
+}
+
+
+// 이미지 백그라운드 경로
+$path-image : '../images/';
+@mixin bg-url($imageName, $type: "png") {
+  background-image: url(#{$path-image}#{$imageName}.#{$type});
+  background-repeat: no-repeat;
+}

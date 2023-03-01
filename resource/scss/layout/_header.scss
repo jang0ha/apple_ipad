@@ -1,61 +1,82 @@
 header {
   --header-height: 44px;
   background-color: var(--color-header);
-}
-.menu {
-  display: flex;
-  justify-content: space-between;
-  height: var(--header-height);
-  > li {
-    display: flex;
-    position: relative;
-    cursor: pointer;
-    transition: 0.4s;
-    .searching & {
+  position: relative;
+
+  z-index: 9;
+  &.searching{
+    .menu >li{
       transform: scale(0.7);
       opacity: 0;
     }
-    > a {
+  }
+
+  // 메뉴
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    height: var(--header-height);
+
+    >li {
       display: flex;
-      align-items: center;
-      padding: 0 10px;
-      font-size: 11px;
-      color: var(--color-font-lightgray);
-      opacity: 0.8;
-    }
-    &.apple-logo,
-    &.search-starter,
-    &.basket-starter {
-      > a {
-        width: 14px;
-        text-indent: -9999px;
-        background-repeat: no-repeat;
-        background-position: center 13px;
-      }
-    }
-    &.apple-logo {
-      > a {
-        background-image: url("../images/header_apple.svg");
-      }
-    }
-    &.search-starter {
-      > a {
-        background-image: url("../images/header_search.svg");
-      }
-    }
-    &.basket-starter {
-      > a {
-        background-image: url("../images/header_bag.svg");
+      position: relative;
+      cursor: pointer;
+      transition: 0.4s;
+
+      &:not(.menu-starter){
+        >a {
+          display: flex;
+          align-items: center;
+          padding: 0 10px;
+          font-size: 11px;
+          color: var(--color-font-lightgray);
+          opacity: 0.8;
+        }
+  
+        &.apple-logo,
+        &.search-starter,
+        &.basket-starter {
+          >a {
+            width: 14px;
+            text-indent: -9999px;
+            background-repeat: no-repeat;
+            background-position: center 13px;
+          }
+        }
+  
+        &.apple-logo {
+          >a {
+            background-image: url("../images/header_apple.svg");
+          }
+        }
+  
+        &.search-starter {
+          >a {
+            background-image: url("../images/header_search.svg");
+          }
+        }
+  
+        &.basket-starter {
+          >a {
+            background-image: url("../images/header_bag.svg");
+          }
+        }
       }
     }
   }
 }
 
+.menu-starter{
+  display: none!important;
+}
+
+
+// 검색
 .search-starter {
   @at-root .search-wrap {
     overflow: 1;
     visibility: hidden;
-    transition: opacity 0.6s;
+    transition: opacity 0.4s;
     transition-delay: 2;
     position: absolute;
     opacity: 0;
@@ -63,10 +84,13 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
+
     .searching & {
       opacity: 1;
       visibility: visible;
+
       .search {
+
         .textfield input,
         .search-icon,
         .autocompletes h3,
@@ -75,10 +99,12 @@ header {
         }
       }
     }
+
     .search {
       max-width: 680px;
       margin: 0 auto;
       position: relative;
+      z-index: 1038;
       .shadow {
         width: 100%;
         height: 100%;
@@ -86,10 +112,11 @@ header {
         position: fixed;
         top: var(--header-height);
         left: 0;
-        background-color: rgba(0, 0, 0, 0.027);
       }
+
       .textfield {
         position: relative;
+
         input {
           width: 100%;
           height: var(--header-height);
@@ -104,6 +131,7 @@ header {
           transition: 0.6s;
           transform: translateX(100px);
         }
+
         @at-root.search-icon {
           width: 40px;
           height: var(--header-height);
@@ -114,6 +142,7 @@ header {
           transition: 0.6s;
           transform: translateX(100px);
         }
+
         @at-root.search-closer {
           width: 40px;
           height: var(--header-height);
@@ -124,29 +153,35 @@ header {
           opacity: 0.4;
           transition: opacity 0.4s;
           cursor: pointer;
+
           &:hover {
             opacity: 1;
           }
         }
       }
+
       .autocompletes {
         background: var(--color-white);
         max-width: 680px;
         margin: 0 auto;
         position: relative;
         border-radius: 0 0 18px 18px;
-        padding: 20px;
+        padding: 20px; 
+
         h3 {
           margin: 1.2rem 1rem 1rem 1.2rem;
           transition: 0.6s;
           transform: translateX(100px);
         }
+
         li {
           transition: 0.6s;
           transform: translateX(100px);
+
           a {
             padding: 1rem;
             display: block;
+
             &:hover {
               background-color: var(--color-font-lightgray);
               color: var(--color-link);
@@ -158,8 +193,10 @@ header {
   }
 }
 
+// 장바구니
 .basket-starter {
   position: relative;
+
   @at-root .basket {
     width: 290px;
     padding: 10px 20px;
@@ -173,6 +210,7 @@ header {
     transition: 0.4s;
     visibility: hidden;
     opacity: 0;
+
     .arrow {
       width: 20px;
       height: 10px;
@@ -180,6 +218,7 @@ header {
       position: absolute;
       top: -10px;
       right: 12px;
+
       &::before {
         content: "";
         width: 12px;
@@ -193,39 +232,36 @@ header {
         left: 50%;
       }
     }
+
     &.show {
       visibility: visible;
       opacity: 1;
     }
+
     .message {
       padding: 30px 0;
       font-size: 13px;
       color: var(--color-font-darkgray);
       text-align: center;
     }
+
     ul {
       margin-top: 10px;
+
       li {
         border-top: 1px solid var(--color-border);
+
         a {
           display: block;
           padding: 14px;
           font-size: 13px;
           color: var(--color-link);
-          &:hover {
+
+          &:hover { 
             text-decoration: underline;
           }
         }
       }
     }
-  }
-}
-
-nav {
-  .inner {
-    max-width: 1000px;
-    height: var(--nav-height);
-    display: flex;
-    align-items: center;
   }
 }

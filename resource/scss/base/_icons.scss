@@ -1,0 +1,12 @@
+$sprites : chip,  faster, neural, apps, battery, center-stage, front-camera, back-camera, scan ;
+.icon{
+  @each $value in $sprites{
+    &--#{$value}{
+      //각 스프라이트 이미지 삽임
+      @include bg-url ("sprite_#{$value}");
+      width: 100px;
+      height: 100px;
+      animation: sprite-icon 3s steps(1) infinite;
+    }
+  }
+}

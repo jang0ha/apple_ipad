@@ -1,0 +1,7 @@
+.btn {
+	@include button();
+
+	&.btn-primary{
+		@include button-bg($primary);
+	}
+}

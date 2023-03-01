@@ -1,0 +1,127 @@
+.hero-wrap {
+  background-color: var(--color-section);
+
+  .inner{
+    position: relative;
+  }
+  h1{
+    width: 221px;
+    height: 91px;
+    background-image: url(../images/hero_ipad_text.png);
+    position: absolute;
+    transform: translate(624px, 235px);
+    z-index: 1;
+
+  }
+  figure {
+    figcaption{
+      .caption-camera {
+        background: url('../images/hero_ipad_caption_camera.png');
+        width: 120px;
+        height: 84px;
+        transform: translate(43px, 580px);
+      }
+    
+      .caption-chip {
+        background: url('../images/hero_ipad_caption_chip.png');
+        width: 95px;
+      height: 43px;
+      transform: translate(589px, 510px);
+      }
+    
+      .caption-storage {
+        background: url('../images/hero_ipad_caption_storage.png');
+        width: 80px;
+        height: 43px;
+        transform: translate(627px, 631px);
+      }
+    }
+  }
+
+
+  h2{
+    width: 738px;
+    height: 145px;
+    margin: 0 auto;
+    background-image: url('../images/hero_headline.png');
+  }
+
+  .pricing{
+    margin-top: 40px;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .description{
+    width: 88%;
+    margin: 18px auto 0;
+    font-size: 19px;
+    text-align: center;
+  }
+  
+  .links{
+    margin-top: 3rem;
+  }
+}
+
+.power-wrap{
+  .multiple-apps{
+    h1{
+      background: url('../images/power_headline.png')no-repeat center;
+      width: 500px;
+      height: 280px;
+    }
+    .figures{
+      figcaption{
+        background: url('../images/power_multiple_apps_caption.png')no-repeat center;
+        width: 138px;
+        height: 46px;
+        right: 21%;
+        top: -5rem;
+      }
+    }
+  }
+}
+
+.arcade{
+  justify-content: space-between;
+  .figures{
+    figure{
+      right: 0;
+    }
+  }
+}
+
+.create{
+  justify-content: flex-end;
+}
+
+
+.camera-wrap {
+  .stage{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+
+    video {
+      position: absolute;
+      top: 36px;
+      left: 76px;
+      -webkit-mask-image: url(../images/camera_video_mask.png);
+    }
+    }
+  h1 {
+    width: 650px;
+    height: 450px;
+    background-image: url('../images/camera_headline.png');
+    transform: translate(-25px, 0);
+  }
+  .info{
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: min-content;
+  }
+  .figures{
+    flex:1;
+  }
+}

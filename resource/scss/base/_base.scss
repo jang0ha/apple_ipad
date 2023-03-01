@@ -1,0 +1,45 @@
+
+
+:root {
+  // Custom variable values only support SassScript inside `#{}`.
+  @each $color, $value in $colors {
+    --#{$variable-prefix}#{$color}: #{$value};
+  }
+
+  @each $color, $value in $theme-colors {
+    --#{$variable-prefix}#{$color}: #{$value};
+  }
+
+}
+html {
+  &.fixed {
+    position: fixed;
+    overflow-y: scroll;
+    width: 100%;
+  }
+}
+
+body {
+  color: var(--color-font);
+  font-size: 16px;
+  line-height: 1;
+  word-break: keep-all;
+  font-family: "Roboto", "Noto Sans KR", sans-serif;
+}
+
+a {
+  color: var(--color-font);
+  text-decoration: none;
+  &.link{
+    color: var(--color-link);
+  }
+}
+img {
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+p {
+  line-height: 1.6;
+}
+
