@@ -12,7 +12,7 @@
   <meta property="og:site_name" content="Apple (KR)" />
   <meta property="og:title" content="iPad 10.2" />
   <meta property="og:description" content="강력한 A13 Bionic 칩을 탑재한 iPad. 센터 스테이지 기술이 적용된 12MP 울트라 와이드 전면 카메라, True Tone 디스플레이 기술 및 64GB 저장 용량까지 갖췄습니다." />
-  <meta property="og:image" content="./images/ipad-seo.png" />
+  <meta property="og:image" content="../resource/images/ipad-seo.png" />
   <meta property="og:url" content="https://www.apple.com/kr/ipad-10.2/" />
 
   <!--Twitter Card-->
@@ -20,7 +20,7 @@
   <meta property="twitter:site" content="Apple (KR)" />
   <meta property="twitter:title" content="iPad 10.2" />
   <meta property="twitter:description" content="강력한 A13 Bionic 칩을 탑재한 iPad. 센터 스테이지 기술이 적용된 12MP 울트라 와이드 전면 카메라, True Tone 디스플레이 기술 및 64GB 저장 용량까지 갖췄습니다." />
-  <meta property="twitter:image" content="./images/ipad-seo.png" />
+  <meta property="twitter:image" content="../resource/images/ipad-seo.png" />
   <meta property="twitter:url" content="https://www.apple.com/kr/ipad-10.2/" />
   <!-- 기본스타일 초기화 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
@@ -30,7 +30,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
   <!-- 스타일 -->
   <link rel="stylesheet" href="../resource/css/style.css">
-  <script defer src="../resource/js/main.js"></script>
+  <script defer type="module" src="../resource/js/main.js"></script>
 </head>
 
 <body>
@@ -115,7 +115,7 @@
     <section class="hero-wrap">
       <div class="inner">
         <h1 class="img-text">ipad</h1>
-        <div class="figures">
+        <div class="figures ratio-portrait">
           <figure>
             <img src="../resource/images/hero_ipad.jpg" alt="iPad와 Smart Keyboard 및 Apple Pencil">
             <figcaption class="img-text">
@@ -148,7 +148,7 @@
       <div class="inner">
         <div class="multiple-apps">
           <h1 class="img-text">거침없는 일 처리 성능.</h1>
-          <div class="figures">
+          <div class="figures ratio-landscape">
             <figure>
               <img src="../resource/images/power_multiple_apps.png" alt="Keynote 마크업과 메시지가 함께 표시된 Split View">
               <figcaption class="img-text">동시에 여러 앱 사용 가능</figcaption>
@@ -156,21 +156,21 @@
           </div>
         </div>
         <div class="arcade feature">
-          <div class="figures">
+          <div class="figures ratio-landscape">
             <figure>
               <img src="../resource/images/power_arcade.png" alt="iPad에 Wonderbox 앱이 열려 있는 모습">
               <figcaption class="img-text">신나게 즐기는 새로운 APPLE ARCADE 게임</figcaption>
             </figure>
           </div>
           <div class="infos infos--center">
-            <div class="info show">
+            <div class="info">
               <div class="icon icon--chip"></div>
               <p>
                 A13 Bionic 칩이 메시지 전송, 인터넷 서핑, 여러 앱 동시에
                 사용하기 등 모든 작업에 더욱 탁월한 반응성을 더해줍니다.
               </p>
             </div>
-            <div class="info show">
+            <div class="info">
               <div class="icon icon--faster"></div>
               <p>
                 최대 20% 빨라진 GPU로 뛰어난 그래픽 성능을 선사합니다.
@@ -179,86 +179,88 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="create feature">
-        <div class="infos infos--end">
-          <div class="info show">
-            <div class="icon icon--neural"></div>
-            <p>더욱 강력해진 Neural Engine이 iPadOS 15의 라이브 텍스트와 같은 머신 러닝 기반 기능을 구현해줍니다.</p>
+        <div class="create feature">
+          <div class="infos">
+            <div class="info">
+              <div class="icon icon--neural"></div>
+              <p>더욱 강력해진 Neural Engine이 iPadOS 15의 라이브 텍스트와 같은 머신 러닝 기반 기능을 구현해줍니다.</p>
+            </div>
+            <div class="info">
+              <div class="icon icon--apps"></div>
+              <p>A13 Bionic 칩은 Adobe Fresco, Procreate와 같은 첨단 앱도 거뜬히 구동합니다.</p>
+            </div>
+            <div class="info">
+              <div class="icon icon--battery"></div>
+              <p>
+                온종일 가는 배터리를 갖춘 iPad. 당신이 열공 모드일 때도,
+                게임 삼매경에 빠져 있을 때도 늘 함께할 준비가 되어 있습니다.<sup><a href="#footnote1">1</a></sup>
+              </p>
+            </div>
           </div>
-          <div class="info show">
-            <div class="icon icon--apps"></div>
-            <p>A13 Bionic 칩은 Adobe Fresco, Procreate와 같은 첨단 앱도 거뜬히 구동합니다.</p>
-          </div>
-          <div class="info show">
-            <div class="icon icon--battery"></div>
-            <p>
-              온종일 가는 배터리를 갖춘 iPad. 당신이 열공 모드일 때도,
-              게임 삼매경에 빠져 있을 때도 늘 함께할 준비가 되어 있습니다.<sup><a href="#footnote1">1</a></sup>
-            </p>
+          <div class="figures ratio-portrait">
+            <figure>
+              <img src="../resource/images/power_create.jpg" alt="Procreate에서 Apple Pencil로 그림이 그려져 있는 모습">
+              <figcaption class="img-text">스케치하고, 그리고, 색칠하고</figcaption>
+            </figure>
           </div>
         </div>
-        <div class="figures">
-          <figure>
-            <img src="../resource/images/power_create.jpg" alt="Procreate에서 Apple Pencil로 그림이 그려져 있는 모습">
-            <figcaption class="img-text">스케치하고, 그리고, 색칠하고</figcaption>
-          </figure>
-        </div>
       </div>
+
     </section>
     <!-- 파워 섹션 끝 -->
- 
+
 
     <!-- 카메라 섹션 -->
     <section class="camera-wrap">
       <div class="inner">
-        <div class="stage">
-          <h1 class="img-text">
-            촬영에서 편집 공유까지 한 기기에서.
-          </h1>
-          <div class="info show">
-            <div class="icon icon--center-stage"></div>
-            <p>
-              센터 스테이지 기술이 영상 통화 시 당신이 언제나 화면 중앙에 있도록 자동으로 카메라를 조정해 줍니다.
-              덕분에 서로에게 더 집중할 수 있게 되죠. SNS에 올릴 재미난 동영상을 만들 때도 요긴하답니다.
-            </p>
+        <div class="stage-area">
+          <div class="stage">
+            <h1 class="img-text">
+              촬영에서 편집 공유까지 한 기기에서.
+            </h1>
+            <div class="info">
+              <div class="icon icon--center-stage"></div>
+              <p>
+                센터 스테이지 기술이 영상 통화 시 당신이 언제나 화면 중앙에 있도록 자동으로 카메라를 조정해 줍니다.
+                덕분에 서로에게 더 집중할 수 있게 되죠. SNS에 올릴 재미난 동영상을 만들 때도 요긴하답니다.
+              </p>
+            </div>
           </div>
-          <div class="figures">
+          <div class="figures ratio-landscape">
             <figure>
               <img src="../resource/images/camera_hardware.png" alt="iPad의 영상 통화 중 센터 스테이지 기능이 사용되는 예시">
               <div class="video-wrap">
                 <video src="../resource/videos/center-stage.mp4" muted="" autoplay="" loop=""></video>
-                <div class="controller--play hide">
+                <button type="button" class="controller--play hide">
                   재생 <img src="../resource/images/video-play.svg" alt="Play">
-                </div>
-                <div class="controller--pause">
+                </button>
+                <button type="button" class="controller--pause">
                   일시정지 <img src="../resource/images/video-pause.svg" alt="Pause">
-                </div>
+                </button>
               </div>
               <figcaption class="img-text">센터 스테이지 덕분에 영상 통화도 더 자연스럽게</figcaption>
             </figure>
           </div>
         </div>
-
-        <div class="edit feature">
+        <div class="edit feature" style="display:none">
           <div class="infos infos--center">
-            <div class="info show">
+            <div class="info">
               <div class="icon icon--front-camera"></div>
               <p>
                 12MP 울트라 와이드 전면 카메라는 센터 스테이지 기술뿐만 아니라 엄청나게 향상된 이미지 화질을 자랑합니다.
                 덕분에 더욱 훌륭한 셀카와 단체 사진도 찍을 수 있죠.
               </p>
             </div>
-            <div class="info show">
+            <div class="info">
               <div class="icon icon--back-camera"></div>
               <p>iPad 후면에 탑재된 8MP 와이드 카메라는 선명하고 또렷한 사진과 동영상을 담을 수 있습니다.</p>
             </div>
-            <div class="info show">
+            <div class="info">
               <div class="icon icon--scan"></div>
               <p>다재다능한 후면 카메라로 문서를 스캔하고 몰입감 넘치는 AR 앱을 즐길 수도 있습니다.</p>
             </div>
           </div>
-          <div class="figures">
+          <div class="figures ratio-portrait">
             <figure>
               <img src="../resource/images/camera_edit.jpg" alt="사진 앱에서 편집되고 있는 이미지">
               <figcaption class="img-text">사진도 동영상도 찍고 편집하고</figcaption>
@@ -269,6 +271,121 @@
       </div>
     </section>
     <!-- 카메라 섹션끝 -->
+
+
+    <!-- os섹션 -->
+    <section class="ipados-wrap">
+      <div class="inner">
+        <h1 class="img-text">
+          iPadOS. 작업의 성공 방정식.
+        </h1>
+        <div class="infos">
+          <div class="info show">
+            <p>널찍한 Multi-Touch 디스플레이를 위해 디자인된 iPadOS는 강력하면서도 누구든 손쉽게 사용할 수 있습니다.</p>
+          </div>
+          <div class="info show">
+            <p>
+              iPadOS 15는 사용하기 쉬운 멀티태스킹 기능, 정보를 검색하고 정리하는 새로운 방식,
+              향상된 메모 기능 등을 통해 iPad의 성능을 한층 더 끌어올립니다.
+            </p>
+            <a href="javascript:void(0)" class="link">iPadOS의 새로운 기능 살펴보기</a>
+          </div>
+        </div>
+        <div class="figures-area">
+          <div class="figures--split-view">
+            <div class="figure">
+              <figure>
+                <img src="../resource/images/ipados_split_view.png" alt="Split View로 이미지를 편집하면서 Mail 앱을 사용 중인 모습">
+                <figcaption class="img-text">두 개의 앱, 서로 양옆에 놓고 쓰기</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="figures--quick-note">
+            <div class="figure">
+              <figure>
+                <img src="../resource/images/ipados_quick_note.png" alt="Safari의 빠른 메모">
+                <figcaption class="img-text">어디서나 남기는 빠른 메모</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="figures--widgets">
+            <div class="figure">
+              <figure>
+                <img src="../resource/images/ipados_widgets.png" alt="홈 화면에 표시된 위젯">
+                <figcaption class="img-text">홈 화면에 바로 뜨는 위젯</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- os 섹션 끝 -->
+
+
+    <!-- 추천 섹션 -->
+    <div class="recomand-wrap">
+      <div class="card">
+        <h1>당신에게 맞는 iPad는?</h1>
+        <ul class="items-area">
+          <!-- ipades.js  -->
+          <!-- <li class="item">
+            <div class="thumbnail"><img src="../resource/images/compare_ipad_10_2.png" alt="iPad Pro"></div>
+            <ul class="colors">
+              <li class="color"></li>
+            </ul>
+            <h3 class="name">iPad Pro</h3>
+            <div class="tag-line">궁극의 iPad란
+              이런 것.</div>
+            <div class="price">99,000원부터</div>
+            <button class="btn btn-primary" type="button">구입하기</button>
+            <div class="links"><a href="" class="link">더알아보기</a></div>
+          </li>
+          <li class="item">
+            <div class="thumbnail"><img src="../resource/images/compare_ipad_air.png" alt="iPad Pro"></div>
+            <ul class="colors">
+              <li class="color"></li>
+            </ul>
+            <h3 class="name">iPad Pro</h3>
+            <div class="tag-line">궁극의 iPad란
+              이런 것.</div>
+            <div class="price">99,000원부터</div>
+            <button class="btn btn-primary" type="button">구입하기</button>
+            <div class="links"><a href="" class="link">더알아보기</a></div>
+          </li>
+          <li class="item">
+            <div class="thumbnail"><img src="../resource/images/compare_ipad_mini.png" alt="iPad Pro"></div>
+            <ul class="colors">
+              <li class="color"></li>
+            </ul>
+            <h3 class="name">iPad Pro</h3>
+            <div class="tag-line">궁극의 iPad란
+              이런 것.</div>
+            <div class="price">99,000원부터</div>
+            <button class="btn btn-primary" type="button">구입하기</button>
+            <div class="links"><a href="" class="link">더알아보기</a></div>
+          </li>
+          <li class="item">
+            <div class="thumbnail"><img src="../resource/images/compare_ipad_pro.png" alt="iPad Pro"></div>
+            <ul class="colors">
+              <li class="color"></li>
+            </ul>
+            <h3 class="name">iPad Pro</h3>
+            <div class="tag-line">궁극의 iPad란
+              이런 것.</div>
+            <div class="price">99,000원부터</div>
+            <button class="btn btn-primary" type="button">구입하기</button>
+            <div class="links"><a href="" class="link">더알아보기</a></div>
+          </li> -->
+        </ul>
+
+        <div class="links">
+          <a href="" class="link">모든 iPad 모델 비교하기</a><a href="" class="link">iPad 쇼핑하기</a>
+        </div>
+      </div>
+    </div>
+    <!-- 추천 섹션끝 -->
+
   </main>
 </body>
 

@@ -1,3 +1,5 @@
+import ipads from '../data/ipads.js'
+
 /**
  * 장바구니 토글 스크립튼
  */
@@ -80,6 +82,7 @@ function hideSearch() {
 
 // /**
 //  * 스프라이트 이미지
+//  * js 키프레임 계산 ()
 //  */
 // let x = 0;
 // let y = 0;
@@ -95,7 +98,90 @@ function hideSearch() {
 //   }
 //   x -= 100
 // }
-// const icons = [...document.querySelectorAll(".icon")]; 
-// icons.animate(frames);
+// const icons = [...document.querySelectorAll(".icon")];
+// icons.style = keyframes.insertFule(frames)
 // console.log(icons)
 // // icons.animate(frames);
+
+
+/**
+ * 요소 가시성 관찰 옵저버 
+ */
+
+
+const io = new IntersectionObserver(entries => {
+  // entries는 `io.observe(el)`로 등록된 모든 관찰 대상 배열.
+  entries.forEach(entry => {
+    // 사라질 때.
+    if (!entry.isIntersecting) {
+      return;
+    }
+    entry.target.classList.add('show')
+  })
+})
+// 관찰할 요소들 검색
+const infoEls = document.querySelectorAll('.info') // 배열데이터
+// 관찰 시작!
+infoEls.forEach(el => io.observe(el))
+
+
+
+/**
+ * 비디오 컨틀롤러
+ */
+
+const video = document.querySelector(".stage-area video");
+const playBtn = document.querySelector(".controller--play");
+const pauseBtn = document.querySelector(".controller--pause");
+
+playBtn.addEventListener("click", function () {
+  video.play();
+  pauseBtn.classList.remove("hide");
+  playBtn.classList.add("hide");
+
+})
+
+pauseBtn.addEventListener("click", function () {
+  video.pause();
+  pauseBtn.classList.add("hide");
+  playBtn.classList.remove("hide");
+})
+
+
+
+/**
+ * compare recomand ipad js
+ * [당신에게 맞는 아이페드는?] 렌더링
+ */
+
+const itemsEl = document.querySelector(".recomand-wrap .items-area");
+ipads.forEach(ipad => {
+  const itemEl = document.createElement('li');//요소 생성
+  itemEl.classList.add("item"); // 생성된 요소에 클래스 부여
+
+  let colorList = ''
+  ipad.colors.forEach(color => {
+    colorList += `<li class="color" style="background-color: ${color};"></li>`
+  })
+
+  itemEl.innerHTML = /* html */`
+  <!-- 백틱 사용 >> template literal 방식 -->
+  <!-- price.toLocaleString('en-Us') 미국에서 사용하는 숫자표시 단위 정의 -->
+  <div class="thumbnail">
+      <img src="${ipad.thumbnail}" alt="${ipad.name}">
+    </div>
+    <ul class="colors">
+      ${colorList}
+    </ul>
+    <h3 class="name"> ${ipad.name}</h3>
+    <div class="tag-line"> ${ipad.tagline}</div>
+    <div class="price">₩${ipad.price.toLocaleString('en-Us')}원 부터</div>
+    <button class="btn btn-primary" type="button">구입하기</button>
+    <div class="links"><a href="${ipad.url}" class="link">더알아보기</a></div>
+  `
+  itemsEl.append(itemEl)
+  console.log(itemEl)
+  // itemsEl.append(itemEl) //아이템컨테이너에 하나씩(forEach) 요소를 넣음 
+  
+})
+
