@@ -1,13 +1,22 @@
 .btn {
 	@include button();
 
-	&.btn-primary{
-		@include theme using ($colors) {
-			background-color: map-get($colors, primary);
-			border-color: map-get($colors, primary);
+	// @each $theme, $colors in $themes {
+	// 	@include theme using ($colors) {
+	// 		background-color: map-get($colors, primary);
+	// 		border-color: map-get($colors, primary);
+	// 	}
+	// 	// @include button-bg($colors);
+	// }
 
-			
-		}
-		// @include button-bg($colors);
+
+}
+
+
+// 버튼 컬러 
+@each $colors, $value in $theme-colors {
+	.btn-#{$colors} {
+		@include button-bg($value, $value);
 	}
 }
+

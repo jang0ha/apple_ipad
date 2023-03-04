@@ -30,13 +30,17 @@
 	cursor: pointer;
 	text-decoration: none;
   font-size: 0.75rem;
-  &:not(:only-child){
-    gap: 1rem;
-  }
+	box-shadow: none!important;
+	border-width: 1px;
+	border-style: solid;
+	background-color: transparent;
+	border-color: transparent;
+	gap: 1rem;
+  
 	@include rounded(2em);
 	//this determines Mozilla to show the padding
 	// @include shadow;
-  @include button-bg($white);
+  // @include button-bg($value);
 	&:hover {
 		text-decoration: none;
 	}
@@ -46,21 +50,35 @@
 	}
 }
 
-@mixin button-bg($color) {
-	border: 1px  solid $color;
-  background-color: $color;
+@mixin button-bg( 
+	$background,
+	$border,
+	$color: color-contrast($background),
+	$hover-background:
+	// 조건 / true / false
+	 if(
+		$color == $color-contrast-light, 
+		shade-color($background, $btn-hover-bg-shade-amount),
+		tint-color($background, $btn-hover-bg-tint-amount)
+		)
+ ) {
+	border-color: $border;
+  background-color: $background;
 	// @include gradient(lighten($color, 13%), $color);//그라디언트
-  color: mix(#fff, $color, 90%);
+  // color: mix(#fff, $color, 90%);
+	color: $color;
 	&:hover {
+		background-color: $hover-background;
 		// @include gradient(lighten($color, 10%), darken($color, 5%))//그라디언트
-    background:lighten($color, 10%);
-    border: 1px solid lighten($color, 13%);
+    // background:lighten($background, 10%);
+    // border-color: lighten($background, 13%);
 	}
 	&:active {
 		// @include gradient($color, lighten($color, 10%));//그라디언트
-		color: mix(#fff, $color, 95%);
-    background:darken($color, 10%);
-    border: 1px solid darken($color, 10%);
+		// color: mix(#fff, $color, 95%);
+    // background:darken($background, 10%);
+    // border-color:darken($background, 10%);
+		// background-color: $hover-background;
 	}
 }
 
