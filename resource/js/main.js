@@ -1,4 +1,5 @@
 import ipads from '../data/ipads.js'
+import navigations from '../data/navigations.js'
 
 /**
  * 장바구니 토글 스크립튼
@@ -26,6 +27,7 @@ window.addEventListener("click", () => {
 function showBasket() {
   basketEl.classList.add("show");
 }
+
 function hideBasket() {
   basketEl.classList.remove("show");
 }
@@ -64,6 +66,7 @@ function showSearch() {
     searchInputEl.focus();
   }, 600);
 }
+
 function hideSearch() {
   headerEl.classList.remove("searching");
   document.documentElement.classList.remove("fixed");
@@ -106,6 +109,7 @@ function hideSearch() {
 
 /**
  * 요소 가시성 관찰 옵저버 
+ * wow 플러그인이랑 같은 기능
  */
 
 
@@ -156,7 +160,7 @@ pauseBtn.addEventListener("click", function () {
 
 const itemsEl = document.querySelector(".recomand-wrap .items-area");
 ipads.forEach(ipad => {
-  const itemEl = document.createElement('li');//요소 생성
+  const itemEl = document.createElement('li'); //요소 생성
   itemEl.classList.add("item"); // 생성된 요소에 클래스 부여
 
   let colorList = ''
@@ -164,9 +168,9 @@ ipads.forEach(ipad => {
     colorList += `<li class="color" style="background-color: ${color};"></li>`
   })
 
-  itemEl.innerHTML = /* html */`
+  itemEl.innerHTML = /* html */ `
   <!-- 백틱 사용 >> template literal 방식 -->
-  <!-- price.toLocaleString('en-Us') 미국에서 사용하는 숫자표시 단위 정의 -->
+  <!-- price.toLocaleString('en-Us') 미국에서 사용하는 숫자표s시 단위 정의 -->
   <div class="thumbnail">
       <img src="${ipad.thumbnail}" alt="${ipad.name}">
     </div>
@@ -182,6 +186,34 @@ ipads.forEach(ipad => {
   itemsEl.append(itemEl)
   console.log(itemEl)
   // itemsEl.append(itemEl) //아이템컨테이너에 하나씩(forEach) 요소를 넣음 
-  
+
 })
 
+
+/**
+ * navigation js
+ * [푸터] 렌더링
+ */
+
+const navsEl = document.querySelector("footer .navigations");
+
+navigations.forEach(nav => {
+  const navEl = document.createElement("div");
+  navEl.classList.add("map");
+
+  let mapList = '';
+  nav.maps.forEach(map =>
+    mapList += /*html */`
+      <li><a href="${map.url}">${map.name}</a></li>`
+  )
+
+
+  navEl.innerHTML = /*html */ `
+   <h3>${nav.title}</h3>
+    <ul>
+      ${mapList}
+    </ul>
+  `
+
+navsEl.append(navEl)
+})

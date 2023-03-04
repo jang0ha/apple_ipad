@@ -2,6 +2,12 @@
 	@include button();
 
 	&.btn-primary{
-		@include button-bg($primary);
+		@include theme using ($colors) {
+			background-color: map-get($colors, primary);
+			border-color: map-get($colors, primary);
+
+			
+		}
+		// @include button-bg($colors);
 	}
 }

@@ -81,6 +81,31 @@ $colors: (
   "gray-dark":  $gray-800
 ) !default;
 
+// 다크모드 / 라이트모드 
+$themes: (
+  dark: (
+    primary: #f542b6,
+    secondary: #c9c9c9
+  ),
+  light: (
+    primary: $primary,
+    secondary: #666666
+  )
+);
+@mixin theme($themes: $themes) {
+  @each $theme, $colors in $themes {
+    .theme-#{$theme} & {
+      @content($colors);
+      
+      .btn-#{$theme} {
+        @include button-bg($theme);
+        @content($colors);
+      }
+    }
+
+  }
+}
+
 
 $min-contrast-ratio:   4.5 !default;
 

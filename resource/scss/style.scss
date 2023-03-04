@@ -1,15 +1,18 @@
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
+@import 'abstracts/breakpoints';
+@import 'abstracts/helpers';
 
 @import 'base/base';
-@import 'base/helpers';
 @import 'base/icons';
+@import 'base/animations';
 
 @import 'layout/nav';
 @import 'layout/header';
 @import 'layout/layout';
-// @import 'layout/footer';
+@import 'layout/footer';
 
 @import 'components/buttons';
 
 @import 'pages/main';
+

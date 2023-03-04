@@ -1,7 +1,5 @@
 .hero-wrap {
   background-color: var(--color-section);
-
-
   .inner{
     position: relative;
   }
@@ -230,7 +228,7 @@
     max-width: 80%;
     margin: auto;
     line-height: 1.4;
-    min-height: 6rem;
+    min-height: 4rem;
    }
    .price{
     font-size:1rem;
@@ -240,10 +238,10 @@
     margin: auto;
    }
    .links{
-    margin-top: 2rem;
+    margin-top: 1rem;
    }
    .link{
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     }
   }
 
