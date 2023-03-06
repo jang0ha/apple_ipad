@@ -66,6 +66,7 @@
   background-color: $background;
 	// @include gradient(lighten($color, 13%), $color);//그라디언트
   // color: mix(#fff, $color, 90%);
+	// color: $theme-colors.invert($background);
 	color: $color;
 	&:hover {
 		background-color: $hover-background;

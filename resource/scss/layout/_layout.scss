@@ -1,11 +1,15 @@
 
 
 .inner {
-  max-width: 980px;
+  max-width: 996px;
   margin: 0 auto;
   padding: 0 20px;
   position: relative;
-  
+  @include  res--laptop{
+  max-width: none;
+  height: var(--header-height);
+  }
+
 }
 
 

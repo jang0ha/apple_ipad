@@ -95,59 +95,9 @@ $themes: (
     secondary: #666666
   )
 );
-// @mixin theme($themes: $themes) {
-  // @each $key, $val in $value
-//   @each $theme, $colors in $themes {
-//     .theme-#{$theme} & {
-//       @content($colors);
-      
-//       .btn-#{$theme} {
-//         @include button-bg($theme);
-//         @content($colors);
-//       }
-//     }
-
-//   }
-// }
-
-// @function theme-color($color, $attribute) { 
-//   @return map-get(map-get($colors, $color), $attribute); 
-// }
 
 
-
-// @function theme-color($themes, $theme, $colors) {
-//   @if map-has-key($themes, $theme) {
-//       @return map-get(map-get($themes, $theme), $colors);
-//   }
-//   @warn "The key ´#{$theme} is not available in the map.";
-//   @return null;
-// }
-// Function
-// @function color($map, $section, $attribute) {
-//   @if map-has-key($map, $section) {
-//       @return map-get(map-get($map, $section), $attribute);
-//   }
-//   @warn "The key ´#{$section} is not available in the map.";
-//   @return null;
-// }
-// // Loop
-// @each$theme, $colors in $themes  {
-//   @if map-has-key($themes, $theme) {
-
-//     .theme-#{$theme} & {
-//     //  @content($colors);
-//     }
-//       // .#{$key} {
-        
-//       //     // background-color: color($theme, $key, background);
-//       //     // color: color($theme, $key, color);
-//       // }
-//   }
-// }
-
-
-$min-contrast-ratio:   4.5 !default;
+$min-contrast-ratio:   3 !default; //3/4.5 /7 사용 숫자가 낮을수록  대비가 커짐 (흰색대비)
 
 // Customize the light and dark text colors for use in our color contrast function.
 $color-contrast-dark:      $black !default;

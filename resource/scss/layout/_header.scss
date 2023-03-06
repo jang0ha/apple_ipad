@@ -2,12 +2,45 @@ header {
   --header-height: 44px;
   background-color: var(--color-header);
   position: relative;
-
   z-index: 9;
-  &.searching{
-    .menu >li{
+  transition: all 0.4s;
+
+  &.searching {
+    .menu>li {
       transform: scale(0.7);
       opacity: 0;
+    }
+  }
+
+  &.menuing {
+    background-color: var(--color-black);
+
+    &::before {
+      height: 100vh;
+      background-color: var(--color-black);
+    }
+    &.searching-mobile{
+      .menu{
+        li{
+          opacity: 0;
+        }
+      }
+      .search-wrap{
+        top: 14px;
+      }
+    }
+  }
+
+  @include res--laptop {
+    &::before {
+      content: "";
+      position: fixed;
+      top: var(--header-height);
+      left: 0;
+      width: 100%;
+      height: 0;
+      background-color: var(--color-header);
+      transition: .4s;
     }
   }
 
@@ -23,67 +56,98 @@ header {
       cursor: pointer;
       transition: 0.4s;
 
-      &:not(.menu-starter){
+      >a {
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+        font-size: 11px;
+        color: var(--color-font-lightgray);
+        opacity: 0.8;
+      }
+
+      &.apple-logo,
+      &.search-starter,
+      &.basket-starter {
         >a {
-          display: flex;
-          align-items: center;
-          padding: 0 10px;
-          font-size: 11px;
-          color: var(--color-font-lightgray);
-          opacity: 0.8;
+          width: 14px;
+          text-indent: -9999px;
+          background-repeat: no-repeat;
+          background-position: center 13px;
         }
-  
-        &.apple-logo,
-        &.search-starter,
-        &.basket-starter {
-          >a {
-            width: 14px;
-            text-indent: -9999px;
-            background-repeat: no-repeat;
-            background-position: center 13px;
-          }
+      }
+
+      &.apple-logo {
+        >a {
+          background-image: url("../images/header_apple.svg");
         }
-  
-        &.apple-logo {
-          >a {
-            background-image: url("../images/header_apple.svg");
-          }
+      }
+
+      &.search-starter {
+        >a {
+          background-image: url("../images/header_search.svg");
         }
-  
-        &.search-starter {
-          >a {
-            background-image: url("../images/header_search.svg");
-          }
+      }
+
+      &.basket-starter {
+        >a {
+          background-image: url("../images/header_bag.svg");
         }
-  
-        &.basket-starter {
-          >a {
-            background-image: url("../images/header_bag.svg");
-          }
+      }
+    }
+
+    @include res--laptop {
+      >li {
+        &:not(.apple-logo, .basket-starter) {
+          display: none;
+        }
+      }
+    }
+  }
+
+}
+
+.menu-starter {
+  display: none !important;
+
+  @include res--laptop {
+    display: flex !important;
+
+    span {
+      display: block;
+      width: 15px;
+      height: 1px;
+      background-color: var(--color-white);
+      margin-bottom: 6px;
+      transition: .4s;
+    }
+
+    .menuing & {
+      span {
+        &:first-child {
+          transform: translate(0, 3.5px) rotate(45deg);
+        }
+
+        &:last-child {
+          transform: translate(0, -3.5px) rotate(-45deg);
         }
       }
     }
   }
 }
 
-.menu-starter{
-  display: none!important;
-}
-
 
 // 검색
 .search-starter {
   @at-root .search-wrap {
-    overflow: 1;
     visibility: hidden;
-    transition: opacity 0.4s;
+    transition: all 0.6s;
     transition-delay: 2;
     position: absolute;
     opacity: 0;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    transition: all 0.4s;
 
     .searching & {
       opacity: 1;
@@ -100,11 +164,16 @@ header {
       }
     }
 
+    .searching-mobile & {
+      // top: 10px;
+    }
+
     .search {
       max-width: 680px;
       margin: 0 auto;
       position: relative;
       z-index: 1038;
+
       .shadow {
         width: 100%;
         height: 100%;
@@ -116,6 +185,7 @@ header {
 
       .textfield {
         position: relative;
+        transition: all 0.4s;
 
         input {
           width: 100%;
@@ -141,6 +211,12 @@ header {
           top: 0;
           transition: 0.6s;
           transform: translateX(100px);
+
+          @include res--laptop {
+            opacity: 0.4;
+            transform: none;
+          }
+
         }
 
         @at-root.search-closer {
@@ -157,7 +233,16 @@ header {
           &:hover {
             opacity: 1;
           }
+
+          @include res--laptop {
+            display: none;
+          }
         }
+      }
+
+      .search-canceler {
+        display: none;
+        color: var(--color-link);
       }
 
       .autocompletes {
@@ -166,7 +251,8 @@ header {
         margin: 0 auto;
         position: relative;
         border-radius: 0 0 18px 18px;
-        padding: 20px; 
+        padding: 20px;
+        transition: all 0.3s;
 
         h3 {
           margin: 1.2rem 1rem 1rem 1.2rem;
@@ -190,12 +276,153 @@ header {
         }
       }
     }
+
+    @include res--laptop {
+      padding: 0 20px 14px;
+      box-sizing: border-box;
+      top: var(--header-height);
+      border-bottom: 1px solid var(--color-header);
+
+      .menuing & {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .shadow {
+        display: none;
+      }
+
+      .search {
+        max-width: none;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .textfield {
+          flex-grow: 1;
+          background-color: var(--color-header);
+          border-radius: 0.25rem;
+
+          input {
+            transform: none;
+
+          }
+        }
+
+        .autocompletes {
+          opacity: 0;
+          visibility: hidden;
+          position: absolute;
+          top: calc(var(--header-height) + 14px);
+          max-width: none;
+          background: transparent;
+          padding:0;
+          width: 100%;
+          transform: translateY(100px);
+          h3 {
+            transform: none;
+            margin-left: 0;
+            color:var(--color-font-darkgray);
+            font-size: 0.5rem;
+            margin-top: 2rem;
+          }
+
+          ul {
+            li {
+              transform: none;
+              margin-left: 0;
+              a{
+                color:var(--color-font-darkgray);
+                padding-left: 0;
+                border-top: 1px solid var(--color-font-darkgray);
+                font-size: 1rem;
+                &:hover{
+                  color:var(--color-link);
+                  background: none;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .searching-mobile & {
+        .search {
+          top: 0;
+          transition: all 0.4s;
+
+          .autocompletes {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+          }
+        }
+
+        .search-canceler {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.mobile-menu {
+  display: none;
+
+  @include res--laptop {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 103px;
+    left: 0;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    transition: .4s;
+    transform: translate(0, -50px);
+
+    ul {
+      padding: 0.5rem 0;
+
+      li {
+        font-size: 0.75rem;
+        border-bottom: 1px solid var(--color-font-darkgray);
+
+        a {
+          color: var(--color-font-darkgray);
+          display: block;
+          padding: 0.75rem 0;
+
+          &:hover {
+            color: var(--color-white);
+          }
+        }
+      }
+    }
+
+    .menuing & {
+      transform: translate(0, 0);
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .searching-mobile & {
+      visibility: hidden;
+      opacity: 0;
+    }
   }
 }
 
 // 장바구니
 .basket-starter {
   position: relative;
+  transition: all 0.4s;
+
+  .menuing & {
+    opacity: 0;
+    visibility: hidden;
+  }
 
   @at-root .basket {
     width: 290px;
@@ -257,7 +484,7 @@ header {
           font-size: 13px;
           color: var(--color-link);
 
-          &:hover { 
+          &:hover {
             text-decoration: underline;
           }
         }

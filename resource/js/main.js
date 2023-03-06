@@ -33,7 +33,7 @@ function hideBasket() {
 }
 
 /**
- * 검색 관련 스크립트
+ * 검색 관련 스크립트 
  */
 const headerEl = document.querySelector("header");
 const headerMenuEls = [...headerEl.querySelectorAll("ul.menu > li")]; // ...전개연산자라는 개념을 통해서 해체를 시킴 li 를 [배열데이터]로 담음
@@ -45,7 +45,9 @@ const searchDelayEls = [...searchWrapEl.querySelectorAll("li")];
 const searchInputEl = searchWrapEl.querySelector("input");
 
 searchStarterEl.addEventListener("click", showSearch);
-searchCloserEl.addEventListener("click", function () {
+searchCloserEl.addEventListener("click", function (event) {
+
+  event.stopPropagation(); //모바일에서분기
   // function(){}>> 익명함수 이기때문에  지명함수에서 ()를 제거하고 내부에서 동작하도록 넣으면 됨.
   hideSearch(); //>> 지명함수
 });
@@ -53,7 +55,7 @@ searchShadowEl.addEventListener("click", hideSearch);
 
 function showSearch() {
   headerEl.classList.add("searching");
-  document.documentElement.classList.add("fixed"); //html 고정
+  stopScroll()
   // 메뉴 사라짐 애니메이션
   headerMenuEls.reverse().forEach(function (el, index) {
     el.style.transitionDelay = (index * 0.4) / headerMenuEls.length + "s"; //역순으로 시작
@@ -69,7 +71,7 @@ function showSearch() {
 
 function hideSearch() {
   headerEl.classList.remove("searching");
-  document.documentElement.classList.remove("fixed");
+  playScroll()
   // 메뉴 보임 애니메이션
   headerMenuEls.reverse().forEach(function (el, index) {
     el.style.transitionDelay = (index * 0.4) / headerMenuEls.length + "s"; //역순으로 시작
@@ -82,6 +84,66 @@ function hideSearch() {
 
   searchInputEl.value = ""; // 인풋값 초기화
 }
+
+
+function playScroll() {
+  document.documentElement.classList.remove("fixed");
+}
+function stopScroll() {
+  document.documentElement.classList.add("fixed"); //html 고정
+}
+
+/**
+ * 헤더 메뉴 토글
+ * 모바일 버전
+ */
+
+const menuStarterEl = headerEl.querySelector(".menu-starter");
+menuStarterEl.addEventListener("click", function () {
+
+  if (headerEl.classList.contains("menuing")) {
+    headerEl.classList.remove("menuing");
+    searchInputEl.value = ""; // 인풋값 초기화
+    playScroll()
+  } else {
+    headerEl.classList.add("menuing");
+    stopScroll();
+ 
+  }
+});
+
+
+/**헤더검색
+ * 모바일 버전
+ */
+
+const searchTextFieldEl = document.querySelector('header .textfield')
+const searchCancelEl = document.querySelector('header .search-canceler')
+
+searchTextFieldEl.addEventListener("click", event => {
+  headerEl.classList.add('searching-mobile');
+  searchInputEl.focus();  
+
+})
+
+searchCancelEl.addEventListener("click", event => {
+  headerEl.classList.remove('searching-mobile');
+
+})
+
+
+window.addEventListener("resize", function () {
+  if (window.innerWidth <= 996) {
+    headerEl.classList.remove('searching');
+    playScroll()// 리사이즈시 html 초기화
+  } else {
+    headerEl.classList.remove('searching-mobile');
+    if (headerEl.classList.contains('menuing')) {
+      headerEl.classList.remove('menuing');
+      playScroll()//리사이즈시 html  초기화
+    }
+  }
+})
 
 // /**
 //  * 스프라이트 이미지
@@ -203,7 +265,7 @@ navigations.forEach(nav => {
 
   let mapList = '';
   nav.maps.forEach(map =>
-    mapList += /*html */`
+    mapList += /*html */ `
       <li><a href="${map.url}">${map.name}</a></li>`
   )
 
@@ -215,5 +277,5 @@ navigations.forEach(nav => {
     </ul>
   `
 
-navsEl.append(navEl)
+  navsEl.append(navEl)
 })
